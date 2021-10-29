@@ -392,8 +392,8 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	input[type="tel"],
-	select,
-	input[type="submit"],
+	
+	
 	textarea {
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -1134,6 +1134,7 @@ input, select, textarea {
 			height: 100%;
 		}
 
+
 		#bg:before {
 			-moz-transition: background-color 2.5s ease-in-out;
 			-webkit-transition: background-color 2.5s ease-in-out;
@@ -1143,18 +1144,13 @@ input, select, textarea {
 			-webkit-transition-delay: 0.75s;
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
-			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto,
- 256px 256px;
-			background-position: center,
- center;
-			background-repeat: no-repeat,
- repeat;
+			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url(../img/logo2.jpg);
+			background-position: center, center;
+			background-repeat: no-repeat;
 			z-index: 2;
 		}
 		#triangle{
-			position: relative !important;
-	        top: 70px;
+		
 	
 			width: 0px;
 			height: 0px;
@@ -1175,7 +1171,8 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-			background-image: radial-gradient(rgba(0, 0, 0, 0.5),rgba(0,0,0,0.8)), url("/img/logo2.jpg");
+		
+			background-image: url(../img/logo2.jpg);
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
@@ -1311,7 +1308,7 @@ input, select, textarea {
 			border: solid 5px #ffffff;
 			border-radius: 100%;
 			position: absolute;
-			top: 15%;
+			top: 10%;
 		}
 
 			#header .logo .icon:before {
