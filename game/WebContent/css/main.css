@@ -1151,17 +1151,16 @@ input, select, textarea {
 		}
 		#triangle{
 		
-	
+			position: relative !important;
+			top : 65px;
+			
 			width: 0px;
 			height: 0px;
 			
 			border-left: 122px solid transparent;
 			border-right: 122px solid transparent;
-			border-bottom: 222px solid#ffffff;
-			transition: all ease 2s 0s;
-			padding-bottom: 0px;
-			
-			
+			border-bottom: 222px solid #ffffff;
+				
 		}
 
 		#bg:after {
@@ -1310,7 +1309,7 @@ input, select, textarea {
 			border: solid 5px #ffffff;
 			border-radius: 100%;
 			position: absolute;
-			top: 10%;
+			top: 15%;
 		}
 
 			#header .logo .icon:before {
@@ -1381,9 +1380,10 @@ input, select, textarea {
 					padding: 0 1.25rem 0 1.45rem;
 					text-transform: uppercase;
 					letter-spacing: 0.3em;
-					font-size: 1rem;					
+					font-size: 0.9rem;					
 					border-bottom: 0; 
 					text-align : center;
+					
 					
 					
 				}
