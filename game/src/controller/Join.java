@@ -18,26 +18,26 @@ public class Join extends HttpServlet {
 
 		request.setCharacterEncoding("euc-kr");
 		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String nick = request.getParameter("nick");
+		//int user_no = Integer.parseInt(request.getParameter("user_no"));
+		String user_id = request.getParameter("id");
+		String user_pw = request.getParameter("pw");
 
 		MemberDAO dao = new MemberDAO();
 
-		int cnt = dao.Join(id, pw, nick);
+		int cnt = dao.Join(user_id, user_pw);
 
 		if (cnt > 0) {
 			System.out.println("가입성공!");
 
-			RequestDispatcher rd = request.getRequestDispatcher("join_success.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("index.html");
 
-			request.setAttribute("id", id);
+			request.setAttribute("id", user_id);
 
 			rd.forward(request, response);
 
 		} else {
 			System.out.println("가입실패!");
-			response.sendRedirect(".jsp"); // 수정
+			response.sendRedirect("index.html"); // 수정
 		}
 	}
 }

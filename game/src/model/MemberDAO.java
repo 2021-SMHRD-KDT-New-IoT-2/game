@@ -20,9 +20,9 @@ public class MemberDAO {
 
 		try {
 			
-			Class.forName("project-db-stu.ddns.net");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1524:xe";
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String user = "campus_b_3_1025";
 			String password = "smhrd3";
 
@@ -51,17 +51,18 @@ public class MemberDAO {
 		}
 	}
 
-	public int Join(String id, String pw, String nick) {
+	public int Join(String user_id, String user_pw) {
 
 		try {
 			connection();
 
-			String sql = "insert into web_member values (?,?)";
+			String sql = "insert into user_table values (member_seq.nextval,?,?)";
 
 			pst = conn.prepareStatement(sql);
-
-			pst.setString(1, id);
-			pst.setString(2, pw);
+ 
+	       
+	        pst.setString(1, user_id);
+	        pst.setString(2, user_pw);
 
 			cnt = pst.executeUpdate();
 
@@ -74,28 +75,28 @@ public class MemberDAO {
 		return cnt;
 	}
 
-	public MemberVO login(String id, String pw, String nick) {
+	public MemberVO login(String user_id, String user_pw) {
 
 		try {
 			connection();
 
-			String sql = "select id, pw from web_member where id = ? and pw = ?";
+			String sql = "select * from user_table where id = ? and pw = ?";
 
 			pst = conn.prepareStatement(sql);
 
-			pst.setString(1, id);
-			pst.setString(2, pw);
+	        pst.setString(1, user_id);
+	        pst.setString(2, user_pw);
 
 			rs = pst.executeQuery(); 
 
 			if (rs.next()) {
 				System.out.println("로그인성공!");
 
-				String get_id = rs.getString("id");
-				String get_pw = rs.getString("pw");
-				String get_nick = rs.getString("nick");
+		        int get_userno = rs.getInt(1);
+	            String get_userid = rs.getString(2);
+	            String get_userpw = rs.getString(3);
 
-				vo = new MemberVO(get_id, get_pw, get_nick);
+				vo = new MemberVO(get_userno, get_userid, get_userpw);
 
 			} else {
 				System.out.println("로그인실패!");
@@ -109,108 +110,108 @@ public class MemberDAO {
 		return vo;
 	}
 
-	public int update(String id, String pw, String nick) {
-
-		try {
-			connection();
-
-			String sql = "update web_member where id=?";
-
-			pst = conn.prepareStatement(sql);
-
-			pst.setString(1, id);
-			pst.setString(2, pw);
-
-			cnt = pst.executeUpdate();
-
-		} catch (Exception e) {
-			System.out.println("수정실패");
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	}
-
-	public ArrayList<MemberVO> selectAll() {
-
-		al = new ArrayList<MemberVO>();
-
-		try {
-			connection();
-
-			String sql = "select id, pw from web_member";
-
-			pst = conn.prepareStatement(sql);
-
-			rs = pst.executeQuery();
-
-			while (rs.next()) {
-
-				String get_id = rs.getString("id");
-				String get_pw = rs.getString("pw");
-				String get_nick = rs.getString("nick");
-
-				vo = new MemberVO(get_id, get_pw, get_nick);
-
-				al.add(vo);
-			}
-
-		} catch (Exception e) {
-			System.out.println("조회실패!");
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return al;
-	}
-
-	public int delete(String id) {
-
-		try {
-			connection();
-
-			String sql = "delete from web_member where id=?";
-
-			pst = conn.prepareStatement(sql);
-
-			pst.setString(1, id);
-
-			cnt = pst.executeUpdate();
-
-		} catch (Exception e) {
-			System.out.println("삭제실패!");
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	}
-
-	public boolean idCheck(String id) {
-
-		try {
-			connection();
-
-			String sql = "select id from web_member where id = ?";
-			
-			pst = conn.prepareStatement(sql);
-			
-			pst.setString(1, id);
-			
-			rs = pst.executeQuery();
-			
-			if (rs.next()) {
-				check = true;
-			} else {
-				check = false;
-			}
-		} catch (Exception e) {
-			System.out.println("로그인실패!");
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return check;
-	}
+//	public int update(String id, String pw, String nick) {
+//
+//		try {
+//			connection();
+//
+//			String sql = "update web_member where id=?";
+//
+//			pst = conn.prepareStatement(sql);
+//
+//			pst.setString(1, id);
+//			pst.setString(2, pw);
+//
+//			cnt = pst.executeUpdate();
+//
+//		} catch (Exception e) {
+//			System.out.println("수정실패");
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return cnt;
+//	}
+//
+//	public ArrayList<MemberVO> selectAll() {
+//
+//		al = new ArrayList<MemberVO>();
+//
+//		try {
+//			connection();
+//
+//			String sql = "select id, pw from web_member";
+//
+//			pst = conn.prepareStatement(sql);
+//
+//			rs = pst.executeQuery();
+//
+//			while (rs.next()) {
+//
+//				String get_id = rs.getString("id");
+//				String get_pw = rs.getString("pw");
+//				String get_nick = rs.getString("nick");
+//
+//				vo = new MemberVO(get_id, get_pw, get_nick);
+//
+//				al.add(vo);
+//			}
+//
+//		} catch (Exception e) {
+//			System.out.println("조회실패!");
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return al;
+//	}
+//
+//	public int delete(String id) {
+//
+//		try {
+//			connection();
+//
+//			String sql = "delete from web_member where id=?";
+//
+//			pst = conn.prepareStatement(sql);
+//
+//			pst.setString(1, id);
+//
+//			cnt = pst.executeUpdate();
+//
+//		} catch (Exception e) {
+//			System.out.println("삭제실패!");
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return cnt;
+//	}
+//
+//	public boolean idCheck(String id) {
+//
+//		try {
+//			connection();
+//
+//			String sql = "select id from web_member where id = ?";
+//			
+//			pst = conn.prepareStatement(sql);
+//			
+//			pst.setString(1, id);
+//			
+//			rs = pst.executeQuery();
+//			
+//			if (rs.next()) {
+//				check = true;
+//			} else {
+//				check = false;
+//			}
+//		} catch (Exception e) {
+//			System.out.println("로그인실패!");
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return check;
+//	}
 }
