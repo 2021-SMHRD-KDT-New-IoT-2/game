@@ -46,7 +46,7 @@
 								<li><a href="#Join"><br>Join</a></li>
 							</ul>
 							<%}else{ %>
-							<p><%=vo.getUser_no() %>님 환영합니다</p>
+							<p>WELCOME!<br> Your number is <%=vo.getUser_no() %></p>
 							<ul>
 								<li><a href="#">개인정보수정</a></li>
 								<li><a href="Logout">로그아웃</a></li>
@@ -76,6 +76,7 @@
 												<li><input name="id" type="text" placeholder="ID을 입력하세요"></li>
 												<li><input name="pw" type="password" placeholder="PW를 입력하세요"></li>
 												<li><input type="submit" value="Login" class="primary"/></li>
+												<span id = "sp_result"></span>
 											</form>
 									</ul>
 								</nav>			
@@ -88,7 +89,9 @@
 									<div class="fields">
 										<div class="field half">
 											<label for="name">ID</label>
-											<input type="text" name="id" id="name" />
+											<input type="text" name="id" id="name"><br>
+											<input type="button" value="ID중복체크" onclick="idCheck()">
+											<span id = "sp_result"></span>
 										</div>
 										<div class="field half">
 											<label for="email">Password</label>
@@ -126,6 +129,36 @@
 			<audio autoplay controls>
 				<source src="../img/squidgame.mp3" type="audio/mp3">      
 			</audio>
+			<script>
+			 function idCheck(){
+				 
+				var input = document.getElementById("name");
+				
+				  $.ajax({
+					  type : "post", //데이터 전송(요청) 방식
+					  data : {"id" : input.value}, //전송하는 데이터
+					  url : "idcheck", //데이터를 전송하는(요청하는) 서버 페이지 url
+					  dataType : "text", //응답데이터의 형식
+					  success : function(data){ //통신 성공
+						  var sp_result = document.getElementById("sp_result"); 
+						  
+						  if(data=="true"){
+							  sp_result.innerText = "사용 불가능한 아이디";
+							  input.value="";
+						  }else{
+							  $("#sp_result").text("사용 가능한 아이디");
+							  alert($("#sp_result").text());
+						  }
+					  },
+					  error : function(){ //통신 실패
+						  alert("통신 실패!!")
+					  }
+						
+				  })
+			 }
+			
+			</script>
+			
 
 </body>
 </html>

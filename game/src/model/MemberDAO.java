@@ -188,30 +188,30 @@ public class MemberDAO {
 //		return cnt;
 //	}
 //
-//	public boolean idCheck(String id) {
-//
-//		try {
-//			connection();
-//
-//			String sql = "select id from web_member where id = ?";
-//			
-//			pst = conn.prepareStatement(sql);
-//			
-//			pst.setString(1, id);
-//			
-//			rs = pst.executeQuery();
-//			
-//			if (rs.next()) {
-//				check = true;
-//			} else {
-//				check = false;
-//			}
-//		} catch (Exception e) {
-//			System.out.println("로그인실패!");
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return check;
-//	}
+	public boolean idCheck(String name) {
+
+		try {
+			connection();
+
+			String sql = "select user_id from users where user_id = ?";
+			
+			pst = conn.prepareStatement(sql);
+			
+			pst.setString(1, name);
+			
+			rs = pst.executeQuery();
+			
+			if (rs.next()) {
+					check = true;
+				} else {
+					check = false;
+				}
+			} catch (Exception e) {
+			System.out.println("로그인실패!");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return check;
+	}
 }
