@@ -1,8 +1,10 @@
-<!DOCTYPE HTML>
-
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Dimension by HTML5 UP</title>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
@@ -14,12 +16,9 @@
 		 }
 	
 		</style>
-     
-	</head>
-	<body class="is-preload">
-
-		<!-- Wrapper -->
-			<div id="wrapper">
+</head>
+<body  class="is-preload">
+<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">
@@ -51,10 +50,10 @@
 							<article id="work">
 								<nav id="menu">	
 									<ul class="links">
-										<li><h5>Î°úÍ∑∏Ïù∏</h5></li>
+										<li><h5>∑Œ±◊¿Œ</h5></li>
 											<form action="Login" method="post">
-												<li><input name="id" type="text" placeholder="IDÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî"></li>
-												<li><input name="pw" type="password" placeholder="PWÎ•º ÏûÖÎ†•ÌïòÏÑ∏Ïöî"></li>
+												<li><input name="id" type="text" placeholder="ID¿ª ¿‘∑¬«œººø‰"></li>
+												<li><input name="pw" type="password" placeholder="PW∏¶ ¿‘∑¬«œººø‰"></li>
 												<li><input type="submit" value="Login" class="primary"/></li>
 											</form>
 									</ul>
@@ -107,5 +106,5 @@
 				<source src="../img/squidgame.mp3" type="audio/mp3">      
 			</audio>
 
-	</body>
+</body>
 </html>
