@@ -72,6 +72,13 @@ input, select, textarea {
 	-ms-appearance: none;
 	appearance: none;
 }
+#start{
+		position: relative;
+		top : 20%;
+		color: #000000;
+		font-weight: bold;
+	}
+	
 
 /* Basic */
 
@@ -391,7 +398,7 @@ input, select, textarea {
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
-	input[type="tel"],
+	
 	
 	
 	textarea {
@@ -417,7 +424,7 @@ input, select, textarea {
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
-		input[type="tel"]:invalid,
+		
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
@@ -426,7 +433,7 @@ input, select, textarea {
 		input[type="text"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
-		input[type="tel"]:focus,
+		
 		select:focus,
 		textarea:focus {
 			background: rgba(255, 255, 255, 0.075);
@@ -885,6 +892,9 @@ input, select, textarea {
 					ul.actions:not(.fixed) li button,
 					ul.actions:not(.fixed) li .button {
 						width: 100%;
+					}
+					.button.fit{
+						width:50% !important;
 					}
 
 						ul.actions:not(.fixed) li input[type="submit"].icon:before,
