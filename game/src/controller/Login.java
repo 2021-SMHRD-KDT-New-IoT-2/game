@@ -31,10 +31,10 @@ public class Login extends HttpServlet {
 
 			session.setAttribute("user", vo);
 
-			response.sendRedirect("index.html"); // 수정
+			response.sendRedirect("main.jsp"); // 수정
 
 		} else {
-			response.sendRedirect("index.html"); // 수정
+			response.sendRedirect("main.jsp"); // 수정
 		}
 	}
 }

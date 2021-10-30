@@ -1,3 +1,4 @@
+<%@page import="model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -20,6 +21,12 @@
 		</style>
 </head>
 <body  class="is-preload">
+
+		<%
+			// 현재 로그인 상태 판별 (vo == null => 비로그인상태)
+			MemberVO vo = (MemberVO)session.getAttribute("user");
+		%>
+
 <div id="wrapper">
 
 				<!-- Header -->
@@ -33,13 +40,22 @@
 							
 						</div>
 						<nav>
+							<%if(vo == null){%>
 							<ul>
-								
 								<li><a href="#work"><br>login</a></li>
 								<li><a href="#Join"><br>Join</a></li>
-								
-								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
+							<%}else{ %>
+							<p><%=vo.getUser_no() %>님 환영합니다</p>
+							<ul>
+								<li><a href="#">개인정보수정</a></li>
+								<li><a href="Logout">로그아웃</a></li>
+								<%if(vo.getUser_no().equals("21")) {%>
+								<li><a href="#">유저 관리</a></li>
+								<%} %>
+							</ul>
+							<%} %>
+														
 						</nav>
 	
 						
