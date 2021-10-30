@@ -9,6 +9,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+		<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 		<style>
 		 #start{
 		 font-size : 25px;
@@ -39,10 +41,13 @@
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
+	
+						
 					</header>
 
 				<!-- Main -->
 					<div id="main">
+					
 
 					
 
