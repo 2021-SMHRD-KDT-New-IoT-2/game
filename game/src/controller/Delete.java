@@ -20,14 +20,14 @@ public class Delete extends HttpServlet {
 
 		MemberDAO dao = new MemberDAO();
 
-		int cnt = dao.delete(id);
+//		int cnt = dao.delete(id);
 
-		if (cnt > 0) {
-			System.out.println("삭제성공!");
-			response.sendRedirect(".jsp"); // 수정
-		} else {
-			System.out.println("삭제실패!");
-			response.sendRedirect(".jsp"); // 수정
-		}
+//		if (cnt > 0) {
+//			System.out.println("삭제성공!");
+//			response.sendRedirect(".jsp"); // 수정
+//		} else {
+//			System.out.println("삭제실패!");
+//			response.sendRedirect(".jsp"); // 수정
+//		}
 	}
 }

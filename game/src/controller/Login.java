@@ -19,9 +19,8 @@ public class Login extends HttpServlet {
 
 		request.setCharacterEncoding("euc-kr");
 
-		String user_no = request.getParameter("user_no");
-		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
+		String user_id = request.getParameter("id");
+		String user_pw = request.getParameter("pw");
 
 		MemberDAO dao = new MemberDAO();
 
@@ -30,7 +29,7 @@ public class Login extends HttpServlet {
 		if (vo != null) {
 			HttpSession session = request.getSession();
 
-			session.setAttribute("member", vo);
+			session.setAttribute("user", vo);
 
 			response.sendRedirect("index.html"); // ¼öÁ¤
 

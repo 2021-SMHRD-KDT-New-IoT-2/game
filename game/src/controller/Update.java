@@ -22,7 +22,7 @@ public class Update extends HttpServlet {
 		
 		MemberVO vo = (MemberVO)session.getAttribute("member");
 		
-		String id = vo.getId();
+//		String id = vo.getId();
 		
 		String Id = request.getParameter("id"); // 소문자를 썼을 때 오류가 나는 이유
 		String pw = request.getParameter("pw");
@@ -31,20 +31,20 @@ public class Update extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 		
-		int cnt = dao.update(id, pw, nick);
+//		int cnt = dao.update(id, pw, nick);
 		
-		if (cnt > 0) {
-			System.out.println("수정성공!");
-			
-			MemberVO vo2 = new MemberVO(id, pw, nick);
-			
-			session.setAttribute("member", vo2);
-			
-			response.sendRedirect(".jsp"); // 수정
-		} else {
-			System.out.println("수정실패!");
-			response.sendRedirect(".jsp"); // 수정
-		}
+//		if (cnt > 0) {
+//			System.out.println("수정성공!");
+//			
+//			MemberVO vo2 = new MemberVO(id, pw, nick);
+//			
+//			session.setAttribute("member", vo2);
+//			
+//			response.sendRedirect(".jsp"); // 수정
+//		} else {
+//			System.out.println("수정실패!");
+//			response.sendRedirect(".jsp"); // 수정
+//		}
 	}
 
 }

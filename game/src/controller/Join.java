@@ -18,7 +18,6 @@ public class Join extends HttpServlet {
 
 		request.setCharacterEncoding("euc-kr");
 		
-		//int user_no = Integer.parseInt(request.getParameter("user_no"));
 		String user_id = request.getParameter("id");
 		String user_pw = request.getParameter("pw");
 

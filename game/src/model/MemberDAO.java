@@ -56,7 +56,7 @@ public class MemberDAO {
 		try {
 			connection();
 
-			String sql = "insert into user_table values (member_seq.nextval,?,?)";
+			String sql = "insert into users values (member_seq.nextval,?,?)";
 
 			pst = conn.prepareStatement(sql);
  
@@ -80,7 +80,7 @@ public class MemberDAO {
 		try {
 			connection();
 
-			String sql = "select * from user_table where id = ? and pw = ?";
+			String sql = "select * from users where user_id = ? and user_pw = ?";
 
 			pst = conn.prepareStatement(sql);
 
@@ -92,9 +92,9 @@ public class MemberDAO {
 			if (rs.next()) {
 				System.out.println("로그인성공!");
 
-		        int get_userno = rs.getInt(1);
-	            String get_userid = rs.getString(2);
-	            String get_userpw = rs.getString(3);
+		        String get_userno = rs.getString("user_no");
+	            String get_userid = rs.getString("user_id");
+	            String get_userpw = rs.getString("user_pw");
 
 				vo = new MemberVO(get_userno, get_userid, get_userpw);
 

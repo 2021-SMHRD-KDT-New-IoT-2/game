@@ -24,11 +24,11 @@ public class idcheck extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 		
-		boolean check = dao.idCheck(id);
+//		boolean check = dao.idCheck(id);
 		
 		PrintWriter out = response.getWriter();
 
-		out.print(check); 
+//		out.print(check); 
 	}
 
 }
