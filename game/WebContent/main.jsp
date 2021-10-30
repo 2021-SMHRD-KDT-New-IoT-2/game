@@ -76,7 +76,6 @@
 												<li><input name="id" type="text" placeholder="ID을 입력하세요"></li>
 												<li><input name="pw" type="password" placeholder="PW를 입력하세요"></li>
 												<li><input type="submit" value="Login" class="primary"/></li>
-												<span id = "sp_result"></span>
 											</form>
 									</ul>
 								</nav>			
